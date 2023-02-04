@@ -1,6 +1,8 @@
 //import logo from './logo.svg';
 import './App.css';
 import { gestureMap, gestureMapKey } from './trackingLogic/gestures';
+import { GetTextFromHTML } from "./trackingLogic/extension";
+import Tracking from "./trackingLogic/tracking";
 
 function App() {
   console.log("TEST: ");
@@ -14,9 +16,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-Header">
+          
+      <header className="App-header">
+        <Tracking />
+        Welcome to the Auditory-Assistant Google Extension!
         <p>
-          Welcome to the Auditory-Assistant Google Extension!
+          <GetTextFromHTML />
         </p>
       </header>
       <div className="App-Gesture-Img-and-Description">
