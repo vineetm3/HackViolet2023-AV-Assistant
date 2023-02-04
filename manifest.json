@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "My digital woman",
+  "description": "Hand Tracking for the Audio-Impared",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "AuditoryAssistant.jpg"
+  }}
