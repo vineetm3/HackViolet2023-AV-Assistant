@@ -1,5 +1,6 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import { GetTextFromHTML } from "./trackingLogic/extension";
 import Tracking from "./trackingLogic/tracking";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <Tracking />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
+          <GetTextFromHTML />
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
