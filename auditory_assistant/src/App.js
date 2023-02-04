@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import { GetTextFromHTML } from "./trackingLogic/extension";
+import Tracking from "./trackingLogic/tracking";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Tracking />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <GetTextFromHTML />
