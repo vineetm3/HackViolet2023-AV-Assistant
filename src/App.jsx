@@ -16,12 +16,20 @@ function App() {
   console.log(gestureImgAltText);
   console.log(gestureImgCommand);
 
+  const videoElement = useRef();
+  console.log("video element is:" + videoElement.current);
+
   return (
     <div className="App">
       <header className="App-header">
-
+        <div className="container">
+          <video ref={videoElement} autoPlay width="500px" height="500px" id="input_video" className="input_video"> </video>
+          <canvas width="500px" height="500px" id="output_canvas" className="output_canvas"></canvas>
+        </div>
         Welcome to the Auditory-Assistant Google Extension!
-          <GetTextFromHTML />        <Tracking />
+        <GetTextFromHTML />       
+        {console.log("yo2312" + videoElement)}
+        <Tracking videoElement={videoElement}/>
       </header>
       <div className="App-Gesture-Img-and-Description">
         <img src={gestureImgLink} className="App-Gesture-Img" alt={gestureImgAltText} />

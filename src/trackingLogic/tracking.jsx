@@ -1,16 +1,13 @@
 //All hand-tracking related logic
 import * as handpose from "@tensorflow-models/handpose";
 import "@tensorflow/tfjs-backend-webgl";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 /*global chrome*/
 let globArr = [];
 
-const Tracking = () => {
-  console.log("yo3");
-  const videoElement = document.getElementById("input_video");
-  const canvasElement = document.getElementById("output_canvas");
-  const canvasCtx = canvasElement.getContext("2d");
+const Tracking = (props) => {
   const [time, setTime] = useState(Date.now());
+  console.log(props);
 
   const startCamera = async () => {
     // Load the MediaPipe handpose model assets.
@@ -19,16 +16,18 @@ const Tracking = () => {
     // Pass in a video stream to the model to obtain
     // a prediction from the MediaPipe graph.
     //const video = document.querySelector("input_video");
-    const hands = await model.estimateHands(videoElement);
+    const hands = await model.estimateHands(props.videoElement.current);
     //console.log(hands);
 
     // Each hand object contains a `landmarks` property,
     // which is an array of 21 3-D landmarks.
     //hands.forEach(hand => console.log(hand.annotations));
-    hands.forEach((hand) => (dataAnalysis(hand.annotations)) );
+    console.log(hands);
+    hands.forEach((hand) => (dataAnalysis(hand.annotations)));
   };
 
   const dataAnalysis = (mano) => {
+    console.log(mano);
     let indexX = mano.indexFinger[0][0];
     let middleX = mano.middleFinger[0][0];
     let ringX = mano.ringFinger[0][0];
@@ -58,28 +57,28 @@ const Tracking = () => {
   const tts = () => {
     chrome.tabs
       ? chrome.tabs
-          .query({ active: true, currentWindow: true })
-          .then(function (tabs) {
-            var activeTab = tabs[0];
-            var activeTabId = activeTab.id;
-            //chrome.tts ? chrome.tts.speak("" + activeTabId) : console.log("failed at tts");
-            return chrome.scripting
-              ? chrome.scripting.executeScript({
-                  target: { tabId: activeTabId },
-                  injectImmediately: true, // uncomment this to make it execute straight away, other wise it will wait for document_idle
-                  func: DOMtoString,
-                  // args: ['body']  // you can use this to target what element to get the html for
-                })
-              : console.log("failed at scripting");
-          })
-          .then(function (results) {
-            HTMLtoReadableText(results[0].result);
-          })
-          .catch(function (error) {
-            console.log(
-              "There was an error injecting script : \n" + error.message
-            );
-          })
+        .query({ active: true, currentWindow: true })
+        .then(function (tabs) {
+          var activeTab = tabs[0];
+          var activeTabId = activeTab.id;
+          //chrome.tts ? chrome.tts.speak("" + activeTabId) : console.log("failed at tts");
+          return chrome.scripting
+            ? chrome.scripting.executeScript({
+              target: { tabId: activeTabId },
+              injectImmediately: true, // uncomment this to make it execute straight away, other wise it will wait for document_idle
+              func: DOMtoString,
+              // args: ['body']  // you can use this to target what element to get the html for
+            })
+            : console.log("failed at scripting");
+        })
+        .then(function (results) {
+          HTMLtoReadableText(results[0].result);
+        })
+        .catch(function (error) {
+          console.log(
+            "There was an error injecting script : \n" + error.message
+          );
+        })
       : console.log("failed at tabs");
   };
 
@@ -115,22 +114,10 @@ const Tracking = () => {
   };
 
   useEffect(() => {
-    console.log("helo");
     startCamera();
   }, [time]);
 
   useEffect(() => {
-    console.log("helo2");
-    if (navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices
-        .getUserMedia({ video: true })
-        .then(function (stream) {
-          videoElement.srcObject = stream;
-        })
-        .catch(function (error) {
-          console.log("Something went wrong!");
-        });
-    }
     const interval = setInterval(() => setTime(Date.now()), 500);
     return () => {
       clearInterval(interval);
