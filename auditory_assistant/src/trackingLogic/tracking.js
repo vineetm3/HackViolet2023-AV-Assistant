@@ -130,6 +130,7 @@ const Tracking = () => {
         })
         .catch(function (error) {
           console.log("Something went wrong!");
+          console.log(error);
         });
     }
     const interval = setInterval(() => setTime(Date.now()), 500);
