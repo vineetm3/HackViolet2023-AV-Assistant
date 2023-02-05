@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
 import './App.css';
-import { gestureMap, gestureMapKey } from './trackingLogic/gestures';
-import { GetTextFromHTML } from "./trackingLogic/extension";
-import Tracking from "./trackingLogic/tracking";
+import { gestureMap, gestureMapKey } from './trackingLogic/gestures.js';
+import { GetTextFromHTML } from "./trackingLogic/extension.js";
+import Tracking from "./trackingLogic/tracking.js";
 
 function App() {
   console.log("TEST: ");
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-          
+        {console.log("yooooooooooo")}
       <header className="App-header">
         <Tracking />
         Welcome to the Auditory-Assistant Google Extension!

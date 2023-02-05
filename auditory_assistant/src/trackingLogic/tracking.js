@@ -132,7 +132,7 @@ const Tracking = () => {
           console.log("Something went wrong!");
         });
     }
-    const interval = setInterval(() => setTime(Date.now()), 100);
+    const interval = setInterval(() => setTime(Date.now()), 500);
     return () => {
       clearInterval(interval);
     };
