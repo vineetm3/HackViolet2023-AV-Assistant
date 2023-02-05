@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
 import './App.css';
-import { gestureMap, gestureMapKey } from './trackingLogic/gestures';
-import { GetTextFromHTML } from "./trackingLogic/extension";
-import Tracking from "./trackingLogic/tracking";
+import { gestureMap, gestureMapKey } from './trackingLogic/gestures.js';
+import { GetTextFromHTML } from "./trackingLogic/extension.js";
+import Tracking from "./trackingLogic/tracking.js";
 
 function App() {
   console.log("TEST: ");
