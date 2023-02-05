@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import { gestureMap, gestureMapKey } from './trackingLogic/gestures.js';
 import { GetTextFromHTML } from "./trackingLogic/extension.js";
