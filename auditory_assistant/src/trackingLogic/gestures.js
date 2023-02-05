@@ -2,7 +2,6 @@
 import AuditoryAssistant from "../images/AuditoryAssistant.png";
 import OkHand from "../images/OkHand.jpg"
 
-
 //Determines which key to call
 let gestureMapKey = "Ok-Hand";
 
