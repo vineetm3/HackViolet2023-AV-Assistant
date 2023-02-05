@@ -1,16 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "React Content Script",
+  "name": "Auditory Assistant",
+  "description": "Hand Tracking for the Audio-Impared",
   "version": "1.0.0",
   "action": {
-    "default_title": "Popup",
     "default_popup": "index.html",
-    "default_icon": "logo192.png"
+    "default_icon": "AuditoryAssistant.png"
   },
-  "icons": {},
+  "permissions": [
+    "tts",
+    "pageCapture",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["https://blank.org/*"],
+      "matches": ["<all_urls>"],
       "js": ["content-script/src/main.tsx"],
       "media": []
     }
