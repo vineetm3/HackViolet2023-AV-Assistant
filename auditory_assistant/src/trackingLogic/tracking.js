@@ -28,7 +28,7 @@ const Tracking = () => {
     // Each hand object contains a `landmarks` property,
     // which is an array of 21 3-D landmarks.
     //hands.forEach(hand => console.log(hand.annotations));
-    hands.forEach((hand) => (dataAnalysis(hand.annotations)) );
+    hands.forEach((hand) => (dataAnalysis(hand.annotations)));
   };
 
   const dataAnalysis = (mano) => {
