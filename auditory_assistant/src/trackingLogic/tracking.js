@@ -31,10 +31,6 @@ const Tracking = () => {
 
   useEffect(() => {
     startCamera();
-    const interval = setInterval(() => setTime(Date.now()), 100);
-    return () => {
-      clearInterval(interval);
-    };
   }, [time]);
 
   useEffect(() => {
@@ -47,6 +43,10 @@ const Tracking = () => {
           console.log("Something went wrong!");
         });
     }
+    const interval = setInterval(() => setTime(Date.now()), 100);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return null;
