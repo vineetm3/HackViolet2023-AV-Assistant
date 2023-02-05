@@ -2,12 +2,13 @@
 import * as handpose from "@tensorflow-models/handpose";
 import "@tensorflow/tfjs-backend-webgl";
 import { useEffect, useState, useRef } from "react";
+import { useSpeechSynthesis } from "react-speech-kit";
 /*global chrome*/
 let globArr = [];
 
 const Tracking = (props) => {
   const [time, setTime] = useState(Date.now());
-  console.log(props);
+  const {speak, cancel} = useSpeechSynthesis();
 
   const startCamera = async () => {
     // Load the MediaPipe handpose model assets.
@@ -36,7 +37,6 @@ const Tracking = (props) => {
 
     let arr = [indexX, middleX, ringX, pinkyX, thumbX];
     globArr.push(indexX - thumbX);
-    console.log(globArr);
     if (globArr.length === 5) {
       let sum = 0;
       for (let i = 0; i < 5; i++) {
@@ -48,6 +48,9 @@ const Tracking = (props) => {
         tts();
         return true;
       }
+      if (sum / 5 > 10) {
+        cancel();
+      }
       sum = 0;
     }
     console.log("fail")
@@ -55,32 +58,8 @@ const Tracking = (props) => {
   };
 
   const tts = () => {
-    chrome.tabs
-      ? chrome.tabs
-        .query({ active: true, currentWindow: true })
-        .then(function (tabs) {
-          var activeTab = tabs[0];
-          var activeTabId = activeTab.id;
-          //chrome.tts ? chrome.tts.speak("" + activeTabId) : console.log("failed at tts");
-          return chrome.scripting
-            ? chrome.scripting.executeScript({
-              target: { tabId: activeTabId },
-              injectImmediately: true, // uncomment this to make it execute straight away, other wise it will wait for document_idle
-              func: DOMtoString,
-              // args: ['body']  // you can use this to target what element to get the html for
-            })
-            : console.log("failed at scripting");
-        })
-        .then(function (results) {
-          HTMLtoReadableText(results[0].result);
-        })
-        .catch(function (error) {
-          console.log(
-            "There was an error injecting script : \n" + error.message
-          );
-        })
-      : console.log("failed at tabs");
-  };
+    HTMLtoReadableText(DOMtoString());
+  }
 
   const HTMLtoReadableText = (allHTML) => {
     //const temp = allHTML;
@@ -98,7 +77,7 @@ const Tracking = (props) => {
       }
       output.push(tempTagString);
     }
-    chrome.tts ? chrome.tts.speak(output[0]) : console.log("failed at tts");
+    speak({text: output[0]});
     console.log(output);
   };
 

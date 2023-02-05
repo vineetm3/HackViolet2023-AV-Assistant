@@ -1,7 +1,6 @@
 let button = document.getElementById('requestPermission');
 
 button.onclick = ()=>{
-    console.log('ya');
     navigator.getUserMedia = navigator.getUserMedia ||
                     navigator.webkitGetUserMedia ||
                     navigator.mozGetUserMedia;
