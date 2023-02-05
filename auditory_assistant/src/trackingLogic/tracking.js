@@ -15,6 +15,7 @@ const Tracking = () => {
   const canvasCtx = canvasElement.getContext("2d");
   const [time, setTime] = useState(Date.now());
 
+  console.log("Video Element Status: " + JSON.stringify(videoElement));
   const startCamera = async () => {
     // Load the MediaPipe handpose model assets.
     const model = await handpose.load();
