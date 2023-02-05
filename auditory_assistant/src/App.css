@@ -1,28 +1,14 @@
 .App {
-  text-align: left;
-  min-width: 750px;
-  max-width: 800px;
-  min-height: 550px;
-  max-height: 600px;
   position: relative;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 
-.App-Header, 
 .App-Gesture-Img-and-Description {
-  background-color: #282c34;
-  /*min-height: 100vh;*/
   align-content: center;
-  justify-content: space-between;
   text-align: center;
   display: flex;
-  /*flex-direction: column;*/
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-Header {
-  text-align: center;
 }
 
 .App-Gesture-Img {
@@ -30,14 +16,14 @@
   pointer-events: none;
 }
 
+.App-Gesture-Img-and-Description p {
+    flex-wrap: wrap;
+}
+
 .App-Gesture-Img-and-Description p, 
 .App-Gesture-Img {
   padding-left: 10px;
-  padding-top: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;
-}
-
-.App-Gesture-Img-and-Description p {
-  flex-wrap: wrap;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px*/
 }
