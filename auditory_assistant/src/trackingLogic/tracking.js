@@ -49,13 +49,16 @@ const Tracking = () => {
       }
       globArr = []
       if (sum / 5 < 3) {
-        console.log("this is a test");
+        console.log("Success!");
         tts();
         return true;
       }
+      if (sum / 5 > 10) {
+        chrome.tts ? chrome.tts.stop() : console.log("failed to stop speaking");
+      }
       sum = 0;
     }
-    console.log("fail")
+    console.log("Fail!")
     return false;
   };
 
