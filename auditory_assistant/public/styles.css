@@ -1,0 +1,29 @@
+body {
+    background-color: #282c34;
+    min-width: 750px;
+    max-width: 800px;
+    min-height: 550px;
+    max-height: 600px;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+body#app_header {
+    display: flex;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+body#input_video, body#output_canvas {
+    width: 300px;
+    height: 300px; 
+    padding-left: 10px;
+    /*padding-top: 10px;*/
+    padding-right: 10px;
+    /*padding-bottom: 10px;*/
+}
