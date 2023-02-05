@@ -25,26 +25,15 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <style>
-      #container {
-        margin: 0px auto;
-        width: 500px;
-        height: 375px;
-        border: 10px #333 solid;
-      }
-      #videoElement {
-        width: 500px;
-        height: 375px;
-        background-color: #666;
-      }
-    </style>
   </head>
 
   <body>
-    <h1>My Beautiful Woman</h1>
-    <div class="container" id="root">
-      <video id="input_video" class="input_video"></video>
-      <canvas id="output_canvas" class="output_canvas" width="1280px" height="720px"></canvas>
+    <div class="container">
+      <video autoplay="true" width="500px" height="500px" id="input_video" class="input_video"> </video>
+      <canvas width="500px" height="500px" id="output_canvas" class="output_canvas" width="1280px" height="720px"></canvas>
     </div>
+    <div id="root">
+    </div>
+
   </body>
 </html>
