@@ -30,8 +30,11 @@
 
   <body>
     <header id="app_header">Welcome to the Auditory-Assistant Google Extension!</header>
-    <video autoplay="false" id="input_video" class="input_video"> </video>
-    <canvas id="output_canvas" class="output_canvas"></canvas>
+    <div id="video-and-canvas">
+      <!-- Sorry for the inline CSS...it was the only way to pad the video/canvas elements -->
+      <video style="padding-left: 30px; padding-top: 30px; padding-right: 30px; padding-bottom: 30px;" autoplay="false" id="input_video" class="input_video"> </video>
+      <canvas style="width: 0px; height: 0px" id="output_canvas" class="output_canvas"></canvas>
+    </div>
     <div id="root"></div>
   </body>
 </html>

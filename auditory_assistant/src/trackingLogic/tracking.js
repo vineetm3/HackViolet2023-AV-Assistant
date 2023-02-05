@@ -49,7 +49,7 @@ const Tracking = () => {
       }
       globArr = []
       if (sum / 5 < 3) {
-        console.log("Success!");
+        console.log("SUCCESS");
         tts();
         return true;
       }
@@ -58,7 +58,7 @@ const Tracking = () => {
       }
       sum = 0;
     }
-    console.log("Fail!")
+    console.log("FAILURE")
     return false;
   };
 

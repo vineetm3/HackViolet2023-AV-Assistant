@@ -1,29 +1,22 @@
 .App {
   position: relative;
-  vertical-align: baseline;
+  vertical-align: top;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.App-Gesture-Img-and-Description {
+p.App-Gesture-Img-and-Description {
   align-content: center;
   text-align: center;
   display: flex;
   font-size: calc(10px + 2vmin);
   color: white;
+  flex-wrap: wrap;
 }
 
-.App-Gesture-Img {
+img.App-Gesture-Img {
   height: 40vmin;
   pointer-events: none;
-}
-
-.App-Gesture-Img-and-Description p {
-    flex-wrap: wrap;
-}
-
-.App-Gesture-Img-and-Description p, 
-.App-Gesture-Img {
-  padding-left: 10px;
-  padding-right: 10px;
-  /*padding-top: 10px;*/
-  /*padding-bottom: 10px*/
 }

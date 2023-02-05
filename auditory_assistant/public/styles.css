@@ -9,23 +9,18 @@ body {
     text-align: center;
     font-size: calc(10px + 2vmin);
     color: white;
-}
-
-body#app_header {
-    display: flex;
     padding-left: 10px;
     padding-top: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
 }
 
-body#input_video, body#output_canvas {
+body#app_header {
+    display: flex;
+}
+
+body#video-and-canvas {
     width: 500px;
     height: 375px;
     border: 10px #333 solid;
-    padding-left: 10px;
-    /*padding-top: 10px;*/
-    padding-right: 10px;
-    /*padding-bottom: 10px;*/
-    margin: 0px auto;
 }
